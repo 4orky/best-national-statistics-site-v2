@@ -1,0 +1,225 @@
+/* Japan in Numbers — a statistical yearbook on the web.
+   Warm paper, deep indigo ink, one vermilion accent. No web fonts:
+   system serif for display type, system sans for everything else. */
+
+:root {
+  --paper: #faf7f1;
+  --card: #ffffff;
+  --ink: #1c2b4a;
+  --ink-soft: #3d4a63;
+  --muted: #6b7280;
+  --line: #e3ddd2;
+  --red: #c1272d;
+  --red-dark: #9c1e23;
+  --nav-bg: #1c2b4a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.2; }
+
+a { color: var(--red-dark); }
+a:hover { text-decoration-thickness: 2px; }
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 16px;
+  z-index: 10;
+}
+.skip:focus { left: 8px; top: 8px; color: #fff; }
+
+/* Masthead */
+.masthead { background: var(--card); border-bottom: 3px solid var(--red); }
+.masthead-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); }
+.disc { width: 44px; height: 44px; border-radius: 50%; background: var(--red); flex: none; }
+.brand-text strong { display: block; font-family: Georgia, serif; font-size: 30px; line-height: 1.1; }
+.brand-text em { display: block; font-style: normal; font-size: 14px; color: var(--muted); margin-top: 2px; }
+.updated { margin: 0; font-size: 13px; color: var(--muted); white-space: nowrap; }
+
+/* Navigation */
+.topnav {
+  background: var(--nav-bg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px;
+  padding: 0 12px;
+}
+.topnav a {
+  color: #dfe4ee;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 11px 13px;
+}
+.topnav a:hover { color: #fff; background: #2a3c5e; }
+.topnav a.active { color: #fff; background: var(--red); }
+
+/* Page */
+main { max-width: 1080px; margin: 0 auto; padding: 8px 20px 40px; }
+.standfirst { font-family: Georgia, serif; font-size: 21px; line-height: 1.45; color: var(--ink-soft); max-width: 760px; }
+.block { margin-top: 28px; }
+.block > h2 { font-size: 26px; margin: 0 0 6px; padding-bottom: 8px; border-bottom: 2px solid var(--ink); }
+.block p { max-width: 760px; }
+.source { font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+/* Takeaways: the three sentences that sum the country up */
+.takeaways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+.takeaway {
+  background: var(--ink);
+  color: #f2f4f8;
+  border-radius: 6px;
+  padding: 16px 18px;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1.5;
+  display: block;
+}
+.takeaway:hover { background: #2a3c5e; }
+.takeaway span { display: block; margin-top: 8px; font-size: 13px; font-weight: 700; color: #f3b8ba; }
+
+/* KPI cards */
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+.kpi {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--red);
+  border-radius: 6px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: var(--ink);
+  display: block;
+}
+.kpi:hover { border-top-color: var(--ink); }
+.kpi-label { display: block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.kpi-value { display: block; font-family: Georgia, serif; font-size: 34px; line-height: 1.15; margin: 2px 0; }
+.kpi-note { display: block; font-size: 14px; color: var(--ink-soft); }
+.kpi-source { display: block; font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+/* Charts */
+.chart { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 14px 10px 4px; margin-top: 12px; }
+.chart svg { width: 100%; height: auto; display: block; }
+
+/* Controls: range buttons, toggles, sort buttons, search */
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0 4px; }
+.controls button {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--ink);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+}
+.controls button:hover { background: #eef1f6; }
+.controls button.on { background: var(--ink); color: #fff; }
+.controls button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+.search { font-size: 15px; font-weight: 600; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.search input {
+  font: inherit;
+  font-size: 15px;
+  padding: 8px 12px;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--ink);
+  min-width: 220px;
+}
+
+/* Fact cards */
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+.fact { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; }
+.fact-label { display: block; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.fact-value { display: block; font-family: Georgia, serif; font-size: 30px; line-height: 1.2; margin: 4px 0 2px; }
+.fact-note { display: block; font-size: 14px; color: var(--ink-soft); }
+.fact-source { display: block; font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+/* Tables */
+table.data { width: 100%; border-collapse: collapse; background: var(--card); margin-top: 12px; font-size: 15px; }
+table.data th, table.data td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+table.data thead th { background: var(--nav-bg); color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
+table.data thead th button { all: unset; cursor: pointer; color: #fff; font: inherit; }
+table.data thead th button:hover { text-decoration: underline; }
+table.data tbody tr:hover { background: #f4efe7; }
+table.data td.num, table.data th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Releases, topics, sources */
+.releases { list-style: none; padding: 0; margin-top: 12px; }
+.releases li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--red);
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.releases span { color: var(--muted); font-size: 14px; }
+.topics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+.topic {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 16px;
+  text-decoration: none;
+  color: var(--ink);
+  display: block;
+}
+.topic:hover { border-color: var(--red); }
+.topic strong { display: block; font-family: Georgia, serif; font-size: 19px; margin-bottom: 4px; }
+.topic span { font-size: 14px; color: var(--ink-soft); }
+.sources { line-height: 1.9; }
+.sources li { margin-bottom: 4px; }
+code { background: #efece5; padding: 1px 6px; border-radius: 4px; font-size: 14px; }
+
+/* Footer */
+footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Phone layout */
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .brand-text strong { font-size: 24px; }
+  .disc { width: 34px; height: 34px; }
+  .updated { display: none; }
+  .topnav { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
+  .topnav a { white-space: nowrap; padding: 10px; }
+  .kpis, .facts, .topics, .takeaways { grid-template-columns: 1fr; }
+  .kpi-value { font-size: 32px; }
+  .standfirst { font-size: 19px; }
+  .block > h2 { font-size: 22px; }
+  table.data { font-size: 14px; display: block; overflow-x: auto; }
+  .releases li { flex-direction: column; gap: 2px; }
+}
